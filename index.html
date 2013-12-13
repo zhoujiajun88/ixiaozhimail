@@ -25,9 +25,34 @@
     <script src="js/github.info.js"></script>
 
     <script>
+        function mail_login_action() {
+            var domainvalue = $('#domain').val();
+            $.cookie('ixiaozhidomain', domainvalue, {expires: 30, path: '/', domain: 'mail.ixiaozhi.com'});
+            $('#form_login').submit();
+        }
+        function checkUsername() {
+            var username = $('#username').val();
+            if (username == null || username.length <= 1) {
+                $.Notify({style: {background: 'red', color: 'white'}, content: "用户名不能为空"});
+                $('#username').focus();
+            } else {
+                $('#domain').focus();
+            }
+        }
+        function checkPassword() {
+            var password = $('#password').val();
+            if (password == null || password.length <= 5) {
+                $.Notify({style: {background: 'red', color: 'white'}, content: "密码不能为空"});
+                $('#password').focus();
+            } else {
+                mail_login_action();
+            }
+        }
+
         $(function () {
             $("#carousel1").carousel({
                 effect: 'fade',
+                period: 4000,
                 height: 500
             });
             var ixiaozhidomain = $.cookie('ixiaozhidomain');
@@ -37,9 +62,28 @@
                 $("#domain").val(ixiaozhidomain);
             }
             $('#btn_login').click(function () {
-                var domainvalue = $('#domain').val();
-                $.cookie('ixiaozhidomain', domainvalue, {expires: 30, path: '/', domain: 'mail.ixiaozhi.com'});
-                $('#form_login').submit();
+                mail_login_action();
+            });
+            $("#username").keydown(function (e) {
+                if (e.keyCode == 13) {
+                    checkUsername();
+                }
+            });
+            $("#domain").keydown(function (e) {
+                if (e.keyCode == 13) {
+                    $('#password').focus();
+                }
+            });
+            $("#password").keydown(function (e) {
+                if (e.keyCode == 13) {
+                    checkPassword();
+                }
+            });
+            $("#username").onblurs(function () {
+                checkUsername();
+            });
+            $("#password").onblurs(function () {
+                checkPassword();
             });
         })
     </script>
@@ -50,7 +94,7 @@
     <nav class="navigation-bar">
         <div class="navigation-bar-content">
             <div class="element">
-                <a class="dropdown-toggle" href="#">有爱的小止集</a>
+                <a class="dropdown-toggle" href="#">有爱の小止集</a>
                 <ul class="dropdown-menu" data-role="dropdown">
                     <li><a href="http://www.ixiaozhi.com">博客</a></li>
                     <li><a href="http://gae.ixiaozhi.com">GAE博客站</a></li>
@@ -108,40 +152,43 @@
                     <input type="hidden" name="p" value="">
 
                     <fieldset>
-                        <legend>邮箱登录</legend>
+                        <legend><i class="icon-mail-2"></i>&nbsp;邮箱登录</legend>
                         <lable>用户名</lable>
                         <div class="input-control text" data-role="input-control">
-                            <input type="text" name="uin" class="text" value="">
+                            <input type="text" id="username" name="uin" placeholder="输入邮箱名" tabindex="1"
+                                   onblur="checkUsername();"/>
                             <button class="btn-clear" tabindex="-1"></button>
                         </div>
                         <lable>域名</lable>
                         <div class="input-control select" data-role="input-control">
-                            <select id="domain" name="domain">
+                            <select id="domain" name="domain" tabindex="2">
                                 <option value="ixiaozhi.com">@ixiaozhi.com</option>
                                 <option value="zhoujiajun.com">@zhoujiajun.com</option>
                                 <option value="zhoujiajun.cn">@zhoujiajun.cn</option>
+                                <option value="qq.com">@qq.com</option>
                             </select>
                         </div>
                         <lable>密码</lable>
                         <div class="input-control password" data-role="input-control">
-                            <input type="password" placeholder="type password" autofocus name="pwd"
-                                   class="text"></input>
+                            <input type="password" id="password" name="pwd" placeholder="输入密码"
+                                   tabindex="3" onblur="checkPassword();"/>
                             <button class="btn-reveal" tabindex="-1"></button>
                         </div>
-                        <input type="button" id="btn_login" style="width:100px;" value="登录">
+                        <input type="button" id="btn_login" style="width:300px;" value="登录">
                     </fieldset>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
 <footer>
     <div class="grid fluid">
         <div class="row">
             <div class="span5 offset2">
                 <button class="command-button  on-right">
                     <i class="icon-code"></i>
-                    有爱的小止 copyright 2013-2014 ixiaozhi.com
+                    ixiaozhi.com copyright 2013-2014
                 </button>
             </div>
             <div class="span5">
