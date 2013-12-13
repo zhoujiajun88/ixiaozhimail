@@ -14,6 +14,7 @@
     <script src="js/jquery/jquery.min.js"></script>
     <script src="js/jquery/jquery.widget.min.js"></script>
     <script src="js/jquery/jquery.mousewheel.js"></script>
+    <script src="js/jquery/jquery.cookie.js"></script>
     <script src="js/prettify/prettify.js"></script>
 
     <!-- Metro UI CSS JavaScript plugins -->
@@ -28,6 +29,16 @@
             $("#carousel1").carousel({
                 effect: 'fade',
                 height: 500
+            });
+            var ixiaozhidomain = $.cookie('ixiaozhidomain');
+            if (ixiaozhidomain == null) {
+                $("#domain").val("ixiaozhi.com");
+            } else {
+                $("#domain").val(ixiaozhidomain);
+            }
+            $('#btn_login').click(function () {
+                var domainvalue = $('#domain').val();
+                $.cookie('ixiaozhidomain', domainvalue, {expires: 30, path: '/', domain: 'mail.ixiaozhi.com'});
             });
         })
     </script>
@@ -88,7 +99,7 @@
                 </div>
             </div>
             <div class="span4">
-                <form action="https://exmail.qq.com/cgi-bin/login" method="post">
+                <form id="form_login" action="https://exmail.qq.com/cgi-bin/login" method="post">
                     <input type="hidden" name="firstlogin" value="false">
                     <input type="hidden" name="errtemplate" value="dm_loginpage">
                     <input type="hidden" name="aliastype" value="other">
@@ -104,18 +115,19 @@
                         </div>
                         <lable>域名</lable>
                         <div class="input-control select" data-role="input-control">
-                            <select name="domain">
-                                <option value="ixiaozhi.com">ixiaozhi.com</option>
-                                <option value="zhoujiajun.com">zhoujiajun.com</option>
-                                <option value="zhoujiajun.cn">zhoujiajun.cn</option>
+                            <select id="domain" name="domain">
+                                <option value="ixiaozhi.com">@ixiaozhi.com</option>
+                                <option value="zhoujiajun.com">@zhoujiajun.com</option>
+                                <option value="zhoujiajun.cn">@zhoujiajun.cn</option>
                             </select>
                         </div>
                         <lable>密码</lable>
                         <div class="input-control password" data-role="input-control">
-                            <input type="password" placeholder="type password" autofocus name="pwd" class="text"></input>
+                            <input type="password" placeholder="type password" autofocus name="pwd"
+                                   class="text"></input>
                             <button class="btn-reveal" tabindex="-1"></button>
                         </div>
-                        <input type="submit" class="" name="" style="width:66px;" value="登录">
+                        <input type="button" id="btn_login" style="width:100px;" value="登录">
                     </fieldset>
                 </form>
             </div>
