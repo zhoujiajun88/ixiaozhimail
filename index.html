@@ -39,6 +39,7 @@
             $('#btn_login').click(function () {
                 var domainvalue = $('#domain').val();
                 $.cookie('ixiaozhidomain', domainvalue, {expires: 30, path: '/', domain: 'mail.ixiaozhi.com'});
+                $('#form_login').submit();
             });
         })
     </script>
