@@ -25,35 +25,40 @@
     <script src="js/github.info.js"></script>
 
     <script>
-        function mail_login_action() {
-            var domainvalue = $('#domain').val();
-            $.cookie('ixiaozhidomain', domainvalue, {expires: 30, path: '/', domain: 'mail.ixiaozhi.com'});
-            $('#form_login').submit();
-        }
         function checkUsername() {
             var username = $('#username').val();
             if (username == null || username.length <= 1) {
                 $.Notify({style: {background: 'green', color: 'white'}, content: "用户名不能为空"});
-                $('#username').focus();
+                return 0;
             } else {
                 $('#domain').focus();
+                return 1;
             }
         }
         function checkPassword() {
             var password = $('#password').val();
             if (password == null || password.length <= 5) {
                 $.Notify({style: {background: 'green', color: 'white'}, content: "密码不能为空"});
-                $('#password').focus();
             } else {
-                mail_login_action();
+                var domainvalue = $('#domain').val();
+                $.cookie('ixiaozhidomain', domainvalue, {expires: 30, path: '/', domain: 'mail.ixiaozhi.com'});
+                if (checkUsername() == 1) {
+                    $('#form_login').submit();
+                }
             }
         }
 
         $(function () {
             $("#carousel1").carousel({
-                effect: 'fade',
+                effect: 'slowdown',
                 period: 4000,
-                height: 500
+                height: 500,
+                controls: false,
+                markers: {
+                    show: true,
+                    type: 'cycle',
+                    position: 'bottom-left'
+                }
             });
             var ixiaozhidomain = $.cookie('ixiaozhidomain');
             if (ixiaozhidomain == null) {
@@ -62,7 +67,7 @@
                 $("#domain").val(ixiaozhidomain);
             }
             $('#btn_login').click(function () {
-                mail_login_action();
+                checkPassword();
             });
             $("#username").keydown(function (e) {
                 if (e.keyCode == 13) {
@@ -173,7 +178,7 @@
                                    tabindex="3" onblur="checkPassword();" data-state="info"/>
                             <button class="btn-reveal" tabindex="-1"></button>
                         </div>
-                        <button id="btn_login" class="large bg-lightBlue fg-white" style="width:300px;">登录</button>
+                        <a id="btn_login" class="button large bg-lightBlue fg-white" style="width:300px;">登录</a>
                     </fieldset>
                 </form>
             </div>
