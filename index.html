@@ -33,7 +33,7 @@
         function checkUsername() {
             var username = $('#username').val();
             if (username == null || username.length <= 1) {
-                $.Notify({style: {background: 'red', color: 'white'}, content: "用户名不能为空"});
+                $.Notify({style: {background: 'green', color: 'white'}, content: "用户名不能为空"});
                 $('#username').focus();
             } else {
                 $('#domain').focus();
@@ -42,7 +42,7 @@
         function checkPassword() {
             var password = $('#password').val();
             if (password == null || password.length <= 5) {
-                $.Notify({style: {background: 'red', color: 'white'}, content: "密码不能为空"});
+                $.Notify({style: {background: 'green', color: 'white'}, content: "密码不能为空"});
                 $('#password').focus();
             } else {
                 mail_login_action();
@@ -156,12 +156,12 @@
                         <lable>用户名</lable>
                         <div class="input-control text" data-role="input-control">
                             <input type="text" id="username" name="uin" placeholder="输入邮箱名" tabindex="1"
-                                   onblur="checkUsername();"/>
+                                   onblur="checkUsername();" data-state="info" autofocus="true"/>
                             <button class="btn-clear" tabindex="-1"></button>
                         </div>
                         <lable>域名</lable>
                         <div class="input-control select" data-role="input-control">
-                            <select id="domain" name="domain" tabindex="2">
+                            <select id="domain" name="domain" tabindex="2" data-state="info">
                                 <option value="ixiaozhi.com">@ixiaozhi.com</option>
                                 <option value="zhoujiajun.com">@zhoujiajun.com</option>
                                 <option value="zhoujiajun.cn">@zhoujiajun.cn</option>
@@ -170,10 +170,10 @@
                         <lable>密码</lable>
                         <div class="input-control password" data-role="input-control">
                             <input type="password" id="password" name="pwd" placeholder="输入密码"
-                                   tabindex="3" onblur="checkPassword();"/>
+                                   tabindex="3" onblur="checkPassword();" data-state="info"/>
                             <button class="btn-reveal" tabindex="-1"></button>
                         </div>
-                        <input type="button" id="btn_login" style="width:300px;" value="登录">
+                        <button id="btn_login" class="large bg-lightBlue fg-white" style="width:300px;">登录</button>
                     </fieldset>
                 </form>
             </div>
