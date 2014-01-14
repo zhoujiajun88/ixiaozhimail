@@ -158,7 +158,7 @@
                         <lable>用户名</lable>
                         <div class="input-control text" data-role="input-control">
                             <input type="text" id="username" name="uin" placeholder="输入邮箱名" tabindex="1"
-                                   onblur="checkUsername();" data-state="info" autofocus="true"/>
+                                   onblur="checkUsername();" data-state="info" autofocus="true" autocomplete="off"/>
                             <button class="btn-clear" tabindex="-1"></button>
                         </div>
                         <lable>域名</lable>
@@ -172,7 +172,7 @@
                         <lable>密码</lable>
                         <div class="input-control password" data-role="input-control">
                             <input type="password" id="password" name="pwd" placeholder="输入密码"
-                                   tabindex="3" onblur="checkPassword();" data-state="info"/>
+                                   tabindex="3" onblur="checkPassword();" data-state="info" autocomplete="off"/>
                             <button class="btn-reveal" tabindex="-1"></button>
                         </div>
                         <a id="btn_login" class="button large bg-lightBlue fg-white" style="width:300px;">登录</a>
