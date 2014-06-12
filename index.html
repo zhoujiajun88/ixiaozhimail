@@ -1,208 +1,76 @@
 <!DOCTYPE html>
-<html>
+<htmlclass="no-js">
+
 <head>
+
     <meta charset="utf-8">
     <meta name="description" content="有爱的小止邮箱登录 ixiaozhi.com">
     <meta name="author" content="周家俊 personal@zhoujiajun.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="favicon.ico" rel="icon" type="image/x-icon" />
-    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="css/metro-bootstrap.css" rel="stylesheet">
-    <link href="css/metro-bootstrap-responsive.css" rel="stylesheet">
-    <link href="css/docs.css" rel="stylesheet">
-    <link href="js/prettify/prettify.css" rel="stylesheet">
+    <link href="favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
 
-    <!-- Load JavaScript Libraries -->
-    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-    <script src="js/jquery/jquery.widget.min.js"></script>
-    <script src="js/jquery/jquery.mousewheel.js"></script>
-    <script src="js/jquery/jquery.cookie.js"></script>
-    <script src="js/prettify/prettify.js"></script>
-
-    <!-- Metro UI CSS JavaScript plugins -->
-    <script src="js/metro.min.js"></script>
-
-    <!-- Local JavaScript -->
-    <script src="js/docs.js"></script>
-    <script src="js/github.info.js"></script>
-
-    <script>
-        function checkUsername() {
-            var username = $('#username').val();
-            if (username == null || username.length <= 1) {
-                $.Notify({style: {background: 'green', color: 'white'}, content: "用户名不能为空"});
-                return 0;
-            } else {
-                $('#domain').focus();
-                return 1;
-            }
-        }
-        function checkPassword() {
-            var password = $('#password').val();
-            if (password == null || password.length <= 5) {
-                $.Notify({style: {background: 'green', color: 'white'}, content: "密码不能为空"});
-            } else {
-                var domainvalue = $('#domain').val();
-                $.cookie('ixiaozhidomain', domainvalue, {expires: 30, path: '/', domain: 'mail.ixiaozhi.com'});
-                if (checkUsername() == 1) {
-                    $('#form_login').submit();
-                }
-            }
-        }
-
-        $(function () {
-            $("#carousel1").carousel({
-                effect: 'slowdown',
-                period: 4000,
-                height: 500,
-                controls: false,
-                markers: {
-                    show: true,
-                    type: 'cycle',
-                    position: 'bottom-left'
-                }
-            });
-            var ixiaozhidomain = $.cookie('ixiaozhidomain');
-            if (ixiaozhidomain == null) {
-                $("#domain").val("ixiaozhi.com");
-            } else {
-                $("#domain").val(ixiaozhidomain);
-            }
-            $('#btn_login').click(function () {
-                checkPassword();
-            });
-            $("#username").keydown(function (e) {
-                if (e.keyCode == 13) {
-                    checkUsername();
-                }
-            });
-            $("#domain").keydown(function (e) {
-                if (e.keyCode == 13) {
-                    $('#password').focus();
-                }
-            });
-            $("#password").keydown(function (e) {
-                if (e.keyCode == 13) {
-                    checkPassword();
-                }
-            });
-        })
-    </script>
     <title>有爱的小止邮箱登录</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/supersized.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
 </head>
-<body class="metro">
-<header>
-    <nav class="navigation-bar">
-        <div class="navigation-bar-content">
-            <div class="element">
-                <a class="dropdown-toggle" href="#">有爱の小止集</a>
-                <ul class="dropdown-menu" data-role="dropdown">
-                    <li><a href="http://www.ixiaozhi.com">博客</a></li>
-                    <li><a href="http://gae.ixiaozhi.com">GAE博客站</a></li>
-                    <li class="divider"></li>
-                    <li><a href="http://www.zhoujiajun.cn">影像@有爱的小止</a></li>
-                    <li><a href="http://zhoujiajun.cn">影像@有爱的小止</a></li>
-                    <li><a href="http://blog.csdn.net/zhoujiajun88">CSDN-有爱的小止</a></li>
-                    <li class="divider"></li>
-                    <li><a href="http://mail.ixiaozhi.com">邮箱登录</a></li>
-                </ul>
-            </div>
 
-            <div class="element place-right">
-                <a class="dropdown-toggle" href="#">
-                    <span class="icon-tools"></span>
-                </a>
-                <ul class="dropdown-menu place-right" data-role="dropdown">
-                    <li><a href="http://www.ixiaozhi.com/aboutme.html">About me</a></li>
-                </ul>
-            </div>
-            <span class="element-divider place-right"></span>
-            <button class="element image-button image-left place-right">
-                有爱的小止
-                <img src="images/me.png"/>
-            </button>
-        </div>
-    </nav>
-</header>
-<div class="page">
-    <div class="grid">
-        <div class="row">
-            <div class="span8">
-                <div class="carousel" id="carousel1">
-                    <div class="slide">
-                        <img src="http://www.ixiaozhi.com/mail/mail-1.png" class="cover1"/>
-                    </div>
+<body>
 
-                    <div class="slide">
-                        <img src="http://www.ixiaozhi.com/mail/mail-2.png" class="cover1"/>
-                    </div>
+<div class="page-container">
+    <h1>邮箱登录</h1>
 
-                    <div class="slide">
-                        <img src="http://www.ixiaozhi.com/mail/mail-3.png" class="cover1"/>
-                    </div>
+    <form action="https://exmail.qq.com/cgi-bin/login" method="post">
+        <input type="hidden" name="firstlogin" value="false">
+        <input type="hidden" name="errtemplate" value="dm_loginpage">
+        <input type="hidden" name="aliastype" value="other">
+        <input type="hidden" name="dmtype" value="bizmail">
+        <input type="hidden" name="p" value="">
 
-                    <a class="controls left"><i class="icon-arrow-left-3"></i></a>
-                    <a class="controls right"><i class="icon-arrow-right-3"></i></a>
-                </div>
-            </div>
-            <div class="span4">
-                <form id="form_login" action="https://exmail.qq.com/cgi-bin/login" method="post">
-                    <input type="hidden" name="firstlogin" value="false">
-                    <input type="hidden" name="errtemplate" value="dm_loginpage">
-                    <input type="hidden" name="aliastype" value="other">
-                    <input type="hidden" name="dmtype" value="bizmail">
-                    <input type="hidden" name="p" value="">
+        <input type="text" id="username" name="uin" tabindex="1" placeholder="用户名" autofocus="true"
+               autocomplete="off">
 
-                    <fieldset>
-                        <legend><i class="icon-mail-2"></i>&nbsp;邮箱登录</legend>
-                        <lable>用户名</lable>
-                        <div class="input-control text" data-role="input-control">
-                            <input type="text" id="username" name="uin" placeholder="输入邮箱名" tabindex="1"
-                                   onblur="checkUsername();" data-state="info" autofocus="true" autocomplete="off"/>
-                            <button class="btn-clear" tabindex="-1"></button>
-                        </div>
-                        <lable>域名</lable>
-                        <div class="input-control select" data-role="input-control">
-                            <select id="domain" name="domain" tabindex="2" data-state="info">
-                                <option value="ixiaozhi.com">@ixiaozhi.com</option>
-                                <option value="zhoujiajun.com">@zhoujiajun.com</option>
-                                <option value="zhoujiajun.cn">@zhoujiajun.cn</option>
-                            </select>
-                        </div>
-                        <lable>密码</lable>
-                        <div class="input-control password" data-role="input-control">
-                            <input type="password" id="password" name="pwd" placeholder="输入密码"
-                                   tabindex="3" onblur="checkPassword();" data-state="info" autocomplete="off"/>
-                            <button class="btn-reveal" tabindex="-1"></button>
-                        </div>
-                        <a id="btn_login" class="button large bg-lightBlue fg-white" style="width:300px;">登录</a>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
+        <select name="domain" id="domain" tabindex="2">
+            <option value="ixiaozhi.com">@ixiaozhi.com</option>
+            <option value="zhoujiajun.com">@zhoujiajun.com</option>
+            <option value="zhoujiajun.cn">@zhoujiajun.cn</option>
+        </select>
+
+        <input type="password" id="password" name="pwd" tabindex="3" placeholder="密码" autocomplete="off">
+
+        <button type="submit">登录</button>
+        <div class="error"><span>+</span></div>
+    </form>
+    <div class="connect">
+        <p>有爱的小止集</p>
+
+        <p>
+            <a class="facebook" href="https://www.facebook.com/ixiaozhi" target="_blank"></a>
+            <a class="twitter" href="https://twitter.com/zhoujiajun88" target="_blank"></a>
+        </p>
     </div>
 </div>
 
-<footer>
-    <div class="grid fluid">
-        <div class="row">
-            <div class="span5 offset2">
-                <button class="command-button  on-right">
-                    <i class="icon-code"></i>
-                    ixiaozhi.com copyright 2013-2014
-                </button>
-            </div>
-            <div class="span5">
-                <button class="command-button">
-                    <i class="icon-html5"></i>
-                    <i class="icon-css3"></i>
-                    <i class="icon-chrome"></i>
-                    <i class="icon-firefox"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-</footer>
-<script src="http://v1.cnzz.com/stat.php?id=5894820&web_id=5894820" language="JavaScript"></script>
+<!-- Javascript -->
+<script src="js/jquery-1.8.2.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/supersized.3.2.7.min.js"></script>
+<script src="js/supersized-init.js"></script>
+<script src="js/scripts.js"></script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_5894820'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D5894820%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
 </body>
+
 </html>
+
