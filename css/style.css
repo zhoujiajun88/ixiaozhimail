@@ -10,14 +10,32 @@
 
 body {
     background: #f8f8f8;
-    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-family: "Microsoft YaHei", 微软雅黑, 'PT Sans', Helvetica, Arial, sans-serif;
     text-align: center;
     color: #fff;
 }
 
 .page-container {
-    margin: 120px auto 0 auto;
+    margin: 60px auto 0 auto;
 }
+
+
+/*-----选择颜色------*/
+::selection {
+    background:#b2d3ff;
+    color:#555;
+}
+
+::-moz-selection {
+    background:#b2d3ff;
+    color:#555;
+}
+
+::-webkit-selection {
+    background:#b2d3ff;
+    color:#555;
+}
+
 
 h1 {
     font-size: 30px;
