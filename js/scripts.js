@@ -4,10 +4,14 @@ $(document).ready(function () {
     $(this).find('.connect').slideDown("slow");
 
     var ixiaozhidomain = $.cookie('ixiaozhidomain');
+    var ixiaozhiusername = $.cookie('ixiaozhiusername');
     if (ixiaozhidomain == null) {
         $("#domain").val("ixiaozhi.com");
     } else {
         $("#domain").val(ixiaozhidomain);
+    }
+    if (ixiaozhiusername != null) {
+        $("#username").val(ixiaozhiusername);
     }
 
     $('#icon_blog,#icon_camera_diandian,#icon_camera_lofter,#icon_blog_weibo,#icon_blog_google,#icon_blog_facebook,#icon_blog_twitter').jrumble({
@@ -30,6 +34,7 @@ $(document).ready(function () {
         var password = $('#password').val();
 
         $.cookie('ixiaozhidomain', domainvalue, {expires: 30, path: '/', domain: 'mail.ixiaozhi.com'});
+        $.cookie('ixiaozhiusername', username, {expires: 30, path: '/', domain: 'mail.ixiaozhi.com'});
 
         if (username == '') {
             $(this).find('.error').fadeOut('fast', function () {
