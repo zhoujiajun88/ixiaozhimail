@@ -1,85 +1,71 @@
+
 <!DOCTYPE html>
 <html>
-
 <head>
-
-    <meta charset="utf-8">
-    <meta name="description" content="有爱的小止邮箱登录 ixiaozhi.com">
-    <meta name="author" content="周家俊 personal@zhoujiajun.com">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="favicon.ico" rel="icon" type="image/x-icon"/>
-    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-
-    <title>有爱的小止邮箱登录</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/supersized.css">
-    <link rel="stylesheet" href="css/style.css">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
+  <meta charset="UTF-8">
+  <title>有爱的小止</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css"/>
+  <style>
+    .header {
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 200%;
+      color: #333;
+      margin-top: 30px;
+    }
+    .header p {
+      font-size: 14px;
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="page-container">
+<div class="header">
+  <div class="am-g">
     <h1>邮箱登录</h1>
+  </div>
+  <hr />
+</div>
+<div class="am-g">
+  <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+    <br>
+    <br>
+    <form method="post" action="https://exmail.qq.com/cgi-bin/login" class="am-form">
+      <input type="hidden" name="firstlogin" value="false">
+      <input type="hidden" name="errtemplate" value="dm_loginpage">
+      <input type="hidden" name="aliastype" value="other">
+      <input type="hidden" name="dmtype" value="bizmail">
+      <input type="hidden" name="p" value="">
 
-    <form action="https://exmail.qq.com/cgi-bin/login" method="post">
-        <input type="hidden" name="firstlogin" value="false">
-        <input type="hidden" name="errtemplate" value="dm_loginpage">
-        <input type="hidden" name="aliastype" value="other">
-        <input type="hidden" name="dmtype" value="bizmail">
-        <input type="hidden" name="p" value="">
-
-        <input type="text" id="username" name="uin" tabindex="1" placeholder="用户名" autofocus="true"
-               autocomplete="off">
-
-        <select name="domain" id="domain" tabindex="2">
+      <input type="text" name="uin" id="username" tabindex="1" placeholder="邮箱名" autofocus="true" autocomplete="off" value="">
+      <br>
+      <select name="domain" id="domain" tabindex="2">
             <option value="ixiaozhi.com">@ixiaozhi.com</option>
             <option value="zhoujiajun.com">@zhoujiajun.com</option>
             <option value="yinshijia.com">@yinshijia.com</option>
             <option value="ioneball.com">@ioneball.com</option>
-        </select>
-
-        <input type="password" id="password" name="pwd" tabindex="3" placeholder="密码" autocomplete="off">
-
-        <button type="submit">登录</button>
-        <div class="error"><span>+</span></div>
+      </select>
+      <br>
+      <input type="password" id="password" name="pwd" tabindex="3" placeholder="密码" autocomplete="off">
+      <br />
+      <div class="am-cf">
+        <input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-block am-fl">
+      </div>
     </form>
-    <div class="connect">
-        <p>有爱的小止集</p>
-
-        <p>
-
-        <div id="icon_blog"><a class="blog" href="http://www.ixiaozhi.com" target="_blank"></a></div>
-        <div id="icon_camera_diandian"><a class="camera" href="http://www.zhoujiajun.cn" target="_blank"></a></div>
-        <div id="icon_camera_lofter"><a class="camera" href="http://zhoujiajun.cn" target="_blank"></a></div>
-        <div id="icon_blog_weibo"><a class="weibo" href="http://weibo.com/zhoujiajun" target="_blank"></a></div>
-        <div id="icon_blog_google"><a class="google" href="https://plus.google.com/+周家俊" target="_blank"></a></div>
-        <div id="icon_blog_facebook"><a class="facebook" href="https://www.facebook.com/ixiaozhi" target="_blank"></a>
-        </div>
-        <div id="icon_blog_twitter"><a class="twitter" href="https://twitter.com/zhoujiajun88" target="_blank"></a>
-        </div>
-        </p>
-    </div>
+    <hr>
+    <p>© 2017 <a href="https://ixiaozhi.com" target="_blank">ixiaozhi.com</a>, 服务器:&nbsp;<a href="https://m.do.co/c/339c882124b4" target="_blank">DigitalOcean</a></p>
+  </div>
 </div>
-
-<!-- Javascript -->
-<script src="js/jquery-1.8.2.min.js"></script>
-<script src="js/jquery.cookie.js"></script>
-<script src="js/jquery.jrumble.1.3.min.js"></script>
-<script src="js/supersized.3.2.7.min.js"></script>
-<script src="js/supersized-init.js"></script>
-<script src="js/scripts.js"></script>
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cspan id='cnzz_stat_icon_5894820'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D5894820%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
-
-
+<div style="visibility:hidden;">
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_5894820'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D5894820%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
 </body>
-
 </html>
